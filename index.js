@@ -164,7 +164,7 @@ app.post('/api/blogs/admin', uploadMiddleware, async (req, res) => {
   }
 });  
 // start server
-const PORT = process.env.port;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
