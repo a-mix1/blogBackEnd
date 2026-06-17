@@ -47,13 +47,7 @@ async function uploadCoverImagetoSupabase(file)
 
        const { data } = supabase.storage
     .from('images')
-    .getPublicUrl(fileName, {
-      transform: {
-        width: 900,
-        quality: 80,
-        format: 'webp'
-      }
-    });
+    .getPublicUrl(fileName);
 
         return data.publicUrl;
 }
@@ -112,13 +106,7 @@ app.post('/api/blogs/admin', uploadMiddleware, async (req, res) => {
 
             const{data}= supabase.storage
             .from('images')
-             .getPublicUrl(fileName, {
-              transform: {
-                width: 1200,
-                quality: 80,
-                format: 'webp'
-              }
-            });
+             .getPublicUrl(fileName);
 
               return {src:data.publicUrl};
         })
